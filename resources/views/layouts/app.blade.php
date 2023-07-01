@@ -13,10 +13,6 @@
 
     {{-- Directiva para agregar estilos --}}
     @stack('styles')
-
-
-
-
 </head>
 
 <body>

@@ -39,6 +39,9 @@ Route::get('/logout', [RegisterUserController::class, 'logout'])->name('logout')
 // Ruta para direccionar al formulario de Empresa Emisora
 Route::get('/emisora', [RegistrarEmpresaEmisoraController::class, 'index'])->name('emisora');
 
+//Ruta para registrar una empresa emisora
+Route::post('/emisora', [RegistrarEmpresaEmisoraController::class, 'store'])->name('emisora.store');
+
 // Ruta para direccionar al formulario de Empresa Receptora
 Route::get('/receptora', [RegistrarEmpresaReceptoraController::class, 'index'])->name('receptora');
 
