@@ -15,7 +15,8 @@
             <h1 class="text-2xl font-bold mb-6 text-center">Registrar empresa receptora</h1>
 
             {{-- Formulario de registro para empresa emisora --}}
-            <form class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
+            <form class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md" action="{{ route('receptora.store') }}"
+                method="POST" novalidate>
                 {{-- Directiva de seguridad --}}
                 @csrf
                 {{-- Campo de nombre --}}
@@ -53,11 +54,11 @@
                     @enderror
                 </div>
 
-                {{-- Campo contacto telefono --}}
+                {{-- Campo contacto --}}
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="contacto">Contacto</label>
                     <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-                        type="number" id="contacto" name="contacto" placeholder="Ingresa el contacto">
+                        type="text" id="contacto" name="contacto" placeholder="Ingresa el contacto">
                     {{-- Mensaje de error --}}
                     @error('contacto')
                         <small class="text-red-500">{{ $message }}</small>

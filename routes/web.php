@@ -45,5 +45,8 @@ Route::post('/emisora', [RegistrarEmpresaEmisoraController::class, 'store'])->na
 // Ruta para direccionar al formulario de Empresa Receptora
 Route::get('/receptora', [RegistrarEmpresaReceptoraController::class, 'index'])->name('receptora');
 
+// Ruta para registrar una empresa receptora
+Route::post('/receptora', [RegistrarEmpresaReceptoraController::class, 'store'])->name('receptora.store');
+
 // Ruta para direccionar al formulario de Factura
 Route::get('/factura', [RegistrarFacturaController::class, 'index'])->name('factura');
