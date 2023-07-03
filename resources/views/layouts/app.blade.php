@@ -29,7 +29,7 @@
                 </a>
                 <ul
                     class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6 ">
-                    <li><a class="text-sm text-gray-400 hover:text-gray-500" href="{{ route('home') }}">Home</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-black" href="{{ route('home') }}">Home</a></li>
                     <li class="text-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                         </svg>
                     </li>
-                    <li><a class="text-sm text-gray-400" href="{{ route('emisora') }}">Emisora</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-black" href="{{ route('emisora') }}">Emisora</a></li>
                     <li class="text-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -45,7 +45,7 @@
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                         </svg>
                     </li>
-                    <li><a class="text-sm text-gray-400 hover:text-gray-500" href="{{ route('receptora') }}">Receptora</a>
+                    <li><a class="text-sm text-gray-400 hover:text-black" href="{{ route('receptora') }}">Receptora</a>
                     </li>
                     <li class="text-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
@@ -54,7 +54,7 @@
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                         </svg>
                     </li>
-                    <li><a class="text-sm text-gray-400 hover:text-gray-500" href="{{ route('factura') }}">Factura</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-black" href="{{ route('factura') }}">Factura</a></li>
                     <li class="text-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -62,10 +62,10 @@
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                         </svg>
                     </li>
-                    <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">Registros</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-black" href="#">Registros</a></li>
                 </ul>
-                <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-                    href="{{ route('logout') }}">Log out</a>
+                <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 hover:text-black text-sm text-white font-bold rounded-xl transition duration-200"
+                    href="{{ route('logout') }}">Salir</a>
             </nav>
         @endauth
 
@@ -81,7 +81,7 @@
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                         </svg>
                     </li>
-                    <li><a class="text-sm text-gray-400 hover:text-gray-500" href="{{ route('home') }}">Home</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-black" href="{{ route('home') }}">Home</a></li>
                     <li class="text-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                             class="w-4 h-4 current-fill" viewBox="0 0 24 24">

@@ -16,7 +16,7 @@
                 <h2
                     class="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
                     xl:text-bold">
-                    Log in</h2>
+                    Iniciar sesión</h2>
                 <div class="mt-12">
                     {{-- Formulario de logeo --}}
                     <form method="POST" action="{{ route('login.store') }}" novalidate>
@@ -26,7 +26,7 @@
                         <div>
                             <div class="text-sm font-bold text-gray-700 tracking-wide">Email </div>
                             <input
-                                class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+                                class="w-full text-lg py-2 px-4 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                                 type="email" name="email" id="email" value="{{ old('email') }}"
                                 placeholder="andrik@gmail.com">
 
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <input
-                                class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+                                class="w-full text-lg py-2 px-4 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                                 type="password" name="password" id="password" placeholder="Ingresa tu password">
 
                             {{-- Directiva de error --}}
@@ -66,10 +66,10 @@
                             </button>
                         </div>
                     </form>
-                    <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
+                    {{-- <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
                         No tienes cuenta ? <a class="cursor-pointer text-indigo-600 hover:text-indigo-800"
                             href="{{ route('register') }}">Registrate</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

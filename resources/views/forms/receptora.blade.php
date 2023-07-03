@@ -15,8 +15,8 @@
             <h1 class="text-2xl font-bold mb-6 text-center">Registrar empresa receptora</h1>
 
             {{-- Formulario de registro para empresa emisora --}}
-            <form class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md" action="{{ route('receptora.store') }}"
-                method="POST" novalidate>
+            <form class="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-sm shadow-black"
+                action="{{ route('receptora.store') }}" method="POST" novalidate>
                 {{-- Directiva de seguridad --}}
                 @csrf
                 {{-- Campo de nombre --}}
@@ -77,7 +77,7 @@
                     {{-- boton de registro --}}
                 </div>
                 <button
-                    class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+                    class="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:text-black hover:bg-indigo-600 transition duration-300"
                     type="submit">Registrar</button>
             </form>
         </div>
