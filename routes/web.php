@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArchivoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterUserController;
@@ -50,3 +51,9 @@ Route::post('/receptora', [RegistrarEmpresaReceptoraController::class, 'store'])
 
 // Ruta para direccionar al formulario de Factura
 Route::get('/factura', [RegistrarFacturaController::class, 'index'])->name('factura');
+
+// Ruta para registrar una factura
+Route::post('/factura', [RegistrarFacturaController::class, 'store'])->name('factura.store');
+
+// Ruta para guardar un archio XML o PDF en uploads
+Route::post('/facturafile', [ArchivoController::class, 'store'])->name('archivos.store');

@@ -16,8 +16,7 @@ return new class extends Migration
             $table->foreignId('empresa_emisora_id')->constrained('empresa_emisora');
             $table->foreignId('empresa_receptora_id')->constrained('empresa_receptora');
             $table->string('folio_factura');
-            $table->string('archivo_pdf')->nullable();
-            $table->string('archivo_xml')->nullable();
+            $table->string('archivo');
             $table->timestamps();
         });
     }
