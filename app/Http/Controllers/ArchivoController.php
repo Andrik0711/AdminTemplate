@@ -7,24 +7,37 @@ use Illuminate\Http\Request;
 
 class ArchivoController extends Controller
 {
-    // Método para almacenar el archivo en el servidor
-    public function store(Request $request)
+    // Método para almacenar el archivo pdf en el servidor
+    public function storepdf(Request $request)
     {
-        $archivo = $request->file('file');
+        $archivopdf = $request->file('file');
 
-        // // Validar que el archivo sea de tipo XML o PDF
+        // Generar un nombre único para cada archivo cargado en el servidor
+        $nombreArchivo = Str::uuid() . '.' . $archivopdf->getClientOriginalExtension();
 
-        // // Generar un nombre único para cada archivo cargado en el servidor
-        $nombreArchivo = Str::uuid() . '.' . $archivo->getClientOriginalExtension();
+        // Almacenar el archivo en la carpeta "uploads"
+        $archivopdf->storeAs('uploadspdf', $nombreArchivo);
 
-        // // Almacenar el archivo en la carpeta "uploads"
-        $archivo->storeAs('uploads', $nombreArchivo);
+        // Obtener la ruta completa del archivo guardado
+        $rutaArchivo = public_path('uploadspdf') . '/' . $nombreArchivo;
 
-        // // Obtener la ruta completa del archivo guardado
-        $rutaArchivo = public_path('uploads') . '/' . $nombreArchivo;
+        return response()->json(['archivopdf' => $nombreArchivo]);
+    }
 
+    // Método para almacenar el archivo xml en el servidor
+    public function storexml(Request $request)
+    {
+        $archivoxml = $request->file('file');
 
-        return response()->json(['archivo' => $nombreArchivo]);
-        //return response()->json(['archivo' => 'Mensaje']);
+        // Generar un nombre único para cada archivo cargado en el servidor
+        $nombreArchivo = Str::uuid() . '.' . $archivoxml->getClientOriginalExtension();
+
+        // Almacenar el archivo en la carpeta "uploadsxml"
+        $archivoxml->storeAs('uploadsxml', $nombreArchivo);
+
+        // Obtener la ruta completa del archivo guardado
+        $rutaArchivo = public_path('uploadsxml') . '/' . $nombreArchivo;
+
+        return response()->json(['archivoxml' => $nombreArchivo]);
     }
 }

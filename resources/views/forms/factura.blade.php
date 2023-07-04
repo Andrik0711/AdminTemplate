@@ -62,10 +62,18 @@
                         @enderror
                     </div>
 
-                    {{-- Agregamos campo oculto para la subida de archivo --}}
+                    {{-- Agregamos campo oculto para la subida de archivo pdf --}}
                     <div class="mb-4">
-                        <input name="archivo" type="hidden" id="archivo" value="{{ old('value') }}" />
-                        @error('archivo')
+                        <input name="archivopdf" type="hidden" id="archivopdf" value="{{ old('value') }}" />
+                        @error('archivopdf')
+                            <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center"> {{ $message }} </p>
+                        @enderror
+                    </div>
+
+                    {{-- Agregamos campo oculto para la subida de archivo xml --}}
+                    <div class="mb-4">
+                        <input name="archivoxml" type="hidden" id="archivoxml" value="{{ old('value') }}" />
+                        @error('archivoxml')
                             <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center"> {{ $message }} </p>
                         @enderror
                     </div>
@@ -79,15 +87,16 @@
             <div class="w-full max-w-sm mx-2 mb-4 bg-white p-8 rounded-md shadow-sm shadow-black">
 
                 <div class="my-5">
-                    <form action="{{ route('archivos.store') }}" method="POST" enctype="multipart/form-data" id="dropzone"
+                    <form action="{{ route('archivospdf.store') }}" method="POST" enctype="multipart/form-data"
+                        id="dropzonepdf"
                         class="dropzone border-dashed border-2 w-100 h-100 rounded flex justify-center items-center">
                         @csrf
                     </form>
                 </div>
 
                 <div class="my-5">
-                    <form action="{{ route('archivos.store') }}" method="POST" enctype="multipart/form-data"
-                        id="dropzone"
+                    <form action="{{ route('archivosxml.store') }}" method="POST" enctype="multipart/form-data"
+                        id="dropzonexml"
                         class="dropzone border-dashed border-2 w-100 h-100 rounded flex justify-center items-center">
                         @csrf
                     </form>

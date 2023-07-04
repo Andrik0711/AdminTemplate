@@ -55,5 +55,8 @@ Route::get('/factura', [RegistrarFacturaController::class, 'index'])->name('fact
 // Ruta para registrar una factura
 Route::post('/factura', [RegistrarFacturaController::class, 'store'])->name('factura.store');
 
-// Ruta para guardar un archio XML o PDF en uploads
-Route::post('/facturafile', [ArchivoController::class, 'store'])->name('archivos.store');
+// Ruta para guardar un archio PDF en uploadspdf
+Route::post('/facturapdf', [ArchivoController::class, 'storepdf'])->name('archivospdf.store');
+
+// Ruta para guardar un archivo XML en uploadsxml
+Route::post('/facturaxml', [ArchivoController::class, 'storexml'])->name('archivosxml.store');

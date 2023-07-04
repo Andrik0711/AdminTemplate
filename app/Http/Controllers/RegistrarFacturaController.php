@@ -29,21 +29,24 @@ class RegistrarFacturaController extends Controller
     public function store(Request $request)
     {
 
-        // dd($request->all()); // recibe el archivo como NULL eso se debe que no jala bien el dropzone
+        // dd($request->all());
 
+        // Validación de campos
         $request->validate([
             'empresa_emisora' => 'required',
             'rfc_receptor' => 'required',
             'folio_factura' => 'required',
-            'archivo' => 'required',
+            'archivopdf' => 'required',
+            'archivoxml' => 'required',
         ]);
 
         // Creamos la factura
         Factura::create([
             'empresa_emisora_id' => $request->empresa_emisora,
-            'empresa_receptora_id' => $request->rfc_receptor, // Corrige el nombre del campo aquí
+            'empresa_receptora_id' => $request->rfc_receptor,
             'folio_factura' => $request->folio_factura,
-            'archivo' => $request->archivo,
+            'archivopdf' => $request->archivopdf,
+            'archivoxml' => $request->archivoxml,
         ]);
 
         // Se redirecciona a la vista de registrar factura
