@@ -105,9 +105,3 @@
         </div>
     </div>
 @endsection
-
-
-{{-- Directiva para integrar los scripts de dropzone --}}
-{{-- @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
-@endpush --}}

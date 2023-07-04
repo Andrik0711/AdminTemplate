@@ -62,7 +62,7 @@
                                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                         </svg>
                     </li>
-                    <li><a class="text-sm text-gray-400 hover:text-black" href="#">Registros</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-black" href="{{ route('registros') }}">Registros</a></li>
                 </ul>
                 <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 hover:text-black text-sm text-white font-bold rounded-xl transition duration-200"
                     href="{{ route('logout') }}">Salir</a>

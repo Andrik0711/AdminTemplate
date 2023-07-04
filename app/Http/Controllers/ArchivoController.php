@@ -16,7 +16,7 @@ class ArchivoController extends Controller
         $nombreArchivo = Str::uuid() . '.' . $archivopdf->getClientOriginalExtension();
 
         // Almacenar el archivo en la carpeta "uploads"
-        $archivopdf->storeAs('uploadspdf', $nombreArchivo);
+        $archivopdf->storeAs('uploadspdf', $nombreArchivo, 'public');
 
         // Obtener la ruta completa del archivo guardado
         $rutaArchivo = public_path('uploadspdf') . '/' . $nombreArchivo;
@@ -33,7 +33,7 @@ class ArchivoController extends Controller
         $nombreArchivo = Str::uuid() . '.' . $archivoxml->getClientOriginalExtension();
 
         // Almacenar el archivo en la carpeta "uploadsxml"
-        $archivoxml->storeAs('uploadsxml', $nombreArchivo);
+        $archivoxml->storeAs('uploadsxml', $nombreArchivo, 'public');
 
         // Obtener la ruta completa del archivo guardado
         $rutaArchivo = public_path('uploadsxml') . '/' . $nombreArchivo;

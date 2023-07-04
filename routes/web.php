@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\RegistrarFacturaController;
 use App\Http\Controllers\RegistrarEmpresaEmisoraController;
 use App\Http\Controllers\RegistrarEmpresaReceptoraController;
+use App\Http\Controllers\RegistrosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,6 @@ Route::post('/facturapdf', [ArchivoController::class, 'storepdf'])->name('archiv
 
 // Ruta para guardar un archivo XML en uploadsxml
 Route::post('/facturaxml', [ArchivoController::class, 'storexml'])->name('archivosxml.store');
+
+// Ruta para ver las a las empresas emisoras, receptoras y facturas registradas
+Route::get('/registros', [RegistrosController::class, 'index'])->name('registros');
