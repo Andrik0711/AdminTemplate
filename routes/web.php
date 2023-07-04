@@ -64,3 +64,6 @@ Route::post('/facturaxml', [ArchivoController::class, 'storexml'])->name('archiv
 
 // Ruta para ver las a las empresas emisoras, receptoras y facturas registradas
 Route::get('/registros', [RegistrosController::class, 'index'])->name('registros');
+
+// Ruta para eliminar un registro
+Route::delete('/registros/{id}', [RegistrosController::class, 'destroy'])->name('registros.destroy');
