@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
     {{-- Scripts de taildwind --}}
     @vite('resources/js/app.js')
-    <title>@yield('title')</title>
+    <title>Portal - @yield('title')</title>
 
     {{-- Directiva para agregar estilos --}}
     @stack('styles')
@@ -64,13 +64,18 @@
                     </li>
                     <li><a class="text-sm text-gray-400 hover:text-black" href="{{ route('registros') }}">Registros</a></li>
                 </ul>
+                {{-- !Muestra el usuario autenticado --}}
+                <a
+                    class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200">
+                    Usuario: {{ auth()->user()->username }}
+                </a>
+
                 <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 hover:text-black text-sm text-white font-bold rounded-xl transition duration-200"
                     href="{{ route('logout') }}">Salir</a>
             </nav>
         @endauth
 
         @guest
-
             <nav class="relative px-4 py-4 flex justify-between items-center bg-white">
                 <ul
                     class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6 ">
@@ -90,10 +95,10 @@
                         </svg>
                     </li>
                 </ul>
-                <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+                <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold  rounded-xl transition duration-200"
                     href="{{ route('login') }}">Login</a>
-                <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-                    href="{{ route('register') }}">Registro</a>
+                {{-- <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                    href="{{ route('register') }}">Registro</a> --}}
             </nav>
         @endguest
 
@@ -107,8 +112,13 @@
 
 
 
-    <footer>
-        @yield('footer')
+    <footer class="footer footer-center w-full p-4 bg-gray-300 text-gray-800">
+        <div class="text-center">
+            <p>
+                Copyright &copy; {{ date('Y') }} -
+                <a class="font-semibold">José Andrik Martínez Rodríguez</a>
+            </p>
+        </div>
     </footer>
 
     {{-- Directiva para agregar scripts --}}

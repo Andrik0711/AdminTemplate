@@ -50,6 +50,6 @@ class RegistrarFacturaController extends Controller
         ]);
 
         // Se redirecciona a la vista de registrar factura
-        return redirect('/');
+        return redirect('registros');
     }
 }

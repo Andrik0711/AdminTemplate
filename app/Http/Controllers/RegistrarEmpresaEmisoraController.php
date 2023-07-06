@@ -10,7 +10,10 @@ class RegistrarEmpresaEmisoraController extends Controller
     // Función que redirecciona a la vista de registrar empresa emisora
     public function index()
     {
-        return view('forms.emisora');
+        //Pasamos la tabla de empresas emisoras a la vista
+        $empresasEmisoras = EmpresaEmisora::paginate(4);
+
+        return view('forms.emisora', compact('empresasEmisoras'));
     }
 
     // Función para registrar una empresa emisora
@@ -23,7 +26,7 @@ class RegistrarEmpresaEmisoraController extends Controller
         $request->validate([
             'razon_social' => 'required|max:255',
             'correo_contacto' => 'required',
-            'rfc_emisor' => 'required|max:13|min:12',
+            'rfc_emisor' => 'required|max:13|min:12|unique:empresa_emisora,rfc_emisor',
         ]);
 
         // Creación de la empresa emisora
@@ -34,6 +37,21 @@ class RegistrarEmpresaEmisoraController extends Controller
         ]);
 
         // Redirección a la vista de inicio
-        return redirect('/');
+        return redirect('emisora');
+    }
+
+    // Función para eliminar una empresa emisora
+    public function destroy($id)
+    {
+        // Buscamos la empresa emisora a eliminar
+        $empresa_emisora_id = EmpresaEmisora::find($id);
+
+        // Eliminamos la empresa emisora
+        $empresa_emisora_id->delete();
+
+        // $empresas_emisoras = EmpresaEmisora::all();
+
+        // Redirección a la vista de inicio
+        return redirect('emisora');
     }
 }

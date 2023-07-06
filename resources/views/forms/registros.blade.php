@@ -6,82 +6,8 @@
 
 @section('content')
     @auth
-        <h1 class="text-2xl font-bold mb-6 text-center">
-            Reportes</h1>
-
-        <h2>Empresas Emisoras</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Razon social</th>
-                    <th>Correo de contacto</th>
-                    <th>RFC emisor</th>
-                    <!-- Agrega aquí las columnas adicionales que deseas mostrar -->
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($empresasEmisoras as $empresaEmisora)
-                    <tr>
-                        <td>{{ $empresaEmisora->id }}</td>
-                        <td>{{ $empresaEmisora->razonsocial }}</td>
-                        <td>{{ $empresaEmisora->correo_contacto }}</td>
-                        <td>{{ $empresaEmisora->rfc_emisor }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-
-        <h2>Empresas Receptoras</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Direccón</th>
-                    <th>RFC Receptor</th>
-                    <th>Contacto</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($empresasReceptoras as $empresaReceptora)
-                    <tr>
-                        <td>{{ $empresaReceptora->id }}</td>
-                        <td>{{ $empresaReceptora->nombre }}</td>
-                        <td>{{ $empresaReceptora->direccion }}</td>
-                        <td>{{ $empresaReceptora->rfc_receptor }}</td>
-                        <td>{{ $empresaReceptora->contacto }}</td>
-                        <td>{{ $empresaReceptora->email }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-
-
-
-
         <div class="my-10 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
             <h1 class=" text-black text-sm lg:text-2xl text-center font-bold">Lista de Reportes</h1>
-            {{-- ! Filtro de busqueda --}}
-            {{-- <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white  px-12">
-                <div class="flex justify-between">
-                    <div class="inline-flex border rounded w-7/12 px-2 lg:px-6 h-12 bg-transparent">
-                        <div class="flex flex-wrap items-stretch w-full h-full mb-6 relative">
-                            <div class="flex">
-                                <span
-                                    class="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-grey-dark text-sm">
-                                    <img src="{{ asset('images/svg/search.svg') }}" alt="Icono de busqueda">
-                                </span>
-                            </div>
-                            <input type="text"
-                                class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin"
-                                placeholder="Ingresa el nombre de la Empresa Emisora">
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
             <div
                 class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg my-4">
                 {{-- Se muestran los datos de la tabla --}}
@@ -215,48 +141,7 @@
                         @endif
                     </ul>
                 </div>
-
-
             </div>
         </div>
     @endauth
 @endsection
-
-@push('script')
-    <script>
-        // Obtener una referencia a todos los botones "Delete" con la clase "eliminar-factura"
-        const botonesEliminar = document.querySelectorAll('.eliminar-factura');
-
-        // Agregar un evento de clic a cada botón
-        botonesEliminar.forEach(boton => {
-            boton.addEventListener('click', () => {
-                // Obtener el ID de la factura desde el atributo "data-id" del botón
-                const facturaId = boton.getAttribute('data-id');
-
-                // Confirmar la eliminación con el usuario
-                if (confirm('¿Estás seguro de que deseas eliminar esta factura?')) {
-                    // Hacer una solicitud al servidor para eliminar la factura
-                    fetch(`/eliminar-factura/${facturaId}`, {
-                            method: 'DELETE',
-                            headers: {
-                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
-                                    .getAttribute('content')
-                            }
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                // Eliminar la fila de la factura de la tabla o realizar cualquier otra acción necesaria
-                                boton.closest('tr').remove();
-                                alert('Factura eliminada exitosamente');
-                            } else {
-                                alert(
-                                    'No se pudo eliminar la factura. Por favor, inténtalo nuevamente.'
-                                );
-                            }
-                        })
-                        .catch(error => console.error('Error al eliminar la factura', error));
-                }
-            });
-        });
-    </script>
-@endpush

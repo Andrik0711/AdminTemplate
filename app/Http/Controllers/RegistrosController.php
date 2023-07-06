@@ -28,20 +28,13 @@ class RegistrosController extends Controller
     // Función que elimina una factura creada
     public function destroy($id)
     {
+        // Se busca la factura a eliminar por medio del id
         $factura_id = Factura::find($id);
 
+        // Si se encuentra se elimina y se redirecciona a la vista de registros
         if ($factura_id) {
             $factura_id->delete();
-
-            // Se obtienen todas las empresas emisoras
-            $empresasEmisoras = EmpresaEmisora::all();
-
-            // Se obtienen todas las empresas receptoras
-            $empresasReceptoras = EmpresaReceptora::all();
-
-            // Se obtienen todas las facturas
-            $facturas = Factura::paginate(4);
-            return view('forms.registros', compact('empresasEmisoras', 'empresasReceptoras', 'facturas'));
+            return redirect('/registros');
         }
     }
 }
